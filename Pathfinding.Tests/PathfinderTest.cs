@@ -1,28 +1,26 @@
 using System;
 using Xunit;
 using Pathfinding;
+using System.Collections.Generic;
 
 
 namespace Pathfinding.Tests
 {
     public class PathfinderTest
     {
+        private int[][] map;
         public PathfinderTest()
         {
-            int width = 11;
-            int height = 7;
+            string mapText = 
+@"00000000000
+00001001000
+00001000100
+00010001000
+00130010000
+00011110000
+20000000000";
 
-            string mapText = @"
-            00000000000
-            00001001000
-            00001000100
-            00010001000
-            00130010000
-            00011110000
-            20000000000
-            ";
-
-            //Assert.Equal(mapText.Length, width*height);
+            map = new MapParser().ReadTextToMap(mapText);
 
         }
 
@@ -30,11 +28,23 @@ namespace Pathfinding.Tests
         public void FindPath_True()
         {
             Pathfinder pathfinder = new Pathfinder();
-            
-            
-            bool yay =pathfinder.FindPath();
+                    
+            Stack<PFNode> path = pathfinder.FindPath(map);
 
-           // Assert.True(yay, "oh no");
+            Assert.True(path.Count != 0, "Path not found");
+            
+            PFNode node = path.Pop();
+            Assert.Equal(0, node.x);
+            Assert.Equal(6, node.y);
+
+            int count = 0;
+            while (path.Count != 0)
+            {
+                count++;
+                node = path.Pop();
+                Assert.True(1 == map[node.x][node.y]);
+            }
+            Assert.Equal(16, count); //this number could be quite wrong.
         }
     }
 }

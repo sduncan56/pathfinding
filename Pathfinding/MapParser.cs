@@ -24,7 +24,7 @@ namespace Pathfinding
                 }
                 else
                 {
-                    throw new Exception("Map input must be digit or newline.");
+                    //throw new Exception($"Map input must be digit or newline. Was {c}");
                 }
             }
             listMap.Add(curRow);
