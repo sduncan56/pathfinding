@@ -34,15 +34,15 @@ namespace Pathfinding.Tests
             Assert.True(path.Count != 0, "Path not found");
             
             PFNode node = path.Pop();
-            Assert.Equal(0, node.x);
+            Assert.Equal(1, node.x);
             Assert.Equal(6, node.y);
 
-            int count = 0;
+            int count = 1;
             while (path.Count != 0)
             {
                 count++;
                 node = path.Pop();
-                Assert.True(1 == map[node.x][node.y]);
+                Assert.True(map[node.x][node.y] != 1, "includes a wall");
             }
             Assert.Equal(16, count); //this number could be quite wrong.
         }
