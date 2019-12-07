@@ -1,0 +1,130 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding.Tests/Pathfinding.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding.Tests/Pathfinding.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding.Tests/Pathfinding.Tests.csproj",
+        "projectName": "Pathfinding.Tests",
+        "projectPath": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding.Tests/Pathfinding.Tests.csproj",
+        "packagesPath": "/home/shane/.nuget/packages/",
+        "outputPath": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/shane/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/Pathfinding.csproj": {
+                "projectPath": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/Pathfinding.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/Pathfinding.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/Pathfinding.csproj",
+        "projectName": "Pathfinding",
+        "projectPath": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/Pathfinding.csproj",
+        "packagesPath": "/home/shane/.nuget/packages/",
+        "outputPath": "/home/shane/Documents/pathfinding3/pathfinding/Pathfinding/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/shane/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
