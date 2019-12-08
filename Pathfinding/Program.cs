@@ -19,7 +19,10 @@ namespace Pathfinding
                         var map = mapParser.ReadTextToMap(currentInput);
                         Pathfinder pathfinder = new Pathfinder();
                         var path = pathfinder.FindPath(map);
-                        Console.WriteLine($"Path length: {path.Count}");
+                        if (path.Count == 0)
+                            Console.WriteLine("No path found");
+                        else
+                            Console.WriteLine($"Path length: {path.Count}");
                     }
                     catch (InvalidMapDataException e)
                     {

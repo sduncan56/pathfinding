@@ -8,8 +8,14 @@ namespace Pathfinding.Tests
 {
     public class PathfinderTest
     {
-        private int[][] map;
         public PathfinderTest()
+        {
+
+
+        }
+
+        [Fact]
+        public void FindPath_True()
         {
             string mapText = 
 @"00000000000
@@ -20,13 +26,7 @@ namespace Pathfinding.Tests
 00011110000
 20000000000";
 
-            map = new MapParser().ReadTextToMap(mapText);
-
-        }
-
-        [Fact]
-        public void FindPath_True()
-        {
+            var map = new MapParser().ReadTextToMap(mapText);
             Pathfinder pathfinder = new Pathfinder();
                     
             Stack<PFNode> path = pathfinder.FindPath(map);
@@ -45,6 +45,23 @@ namespace Pathfinding.Tests
                 Assert.True(map[node.x][node.y] != 1, "includes a wall");
             }
             Assert.Equal(17, count);
+        }
+
+        [Fact]
+        public void FindPath_NoPath()
+        {
+            string mapText =
+@"0000
+0020
+1111
+0000
+3000";
+            var map = new MapParser().ReadTextToMap(mapText);
+            Pathfinder pathfinder = new Pathfinder();
+                    
+            Stack<PFNode> path = pathfinder.FindPath(map);
+
+            Assert.Equal(0, path.Count);
         }
     }
 }
