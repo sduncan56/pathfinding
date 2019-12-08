@@ -44,7 +44,7 @@ namespace Pathfinding.Tests
                 node = path.Pop();
                 Assert.True(map[node.x][node.y] != 1, "includes a wall");
             }
-            Assert.Equal(16, count); //this number could be quite wrong.
+            Assert.Equal(17, count);
         }
     }
 }

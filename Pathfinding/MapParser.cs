@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 namespace Pathfinding
 {
+    public class InvalidMapDataException : Exception
+    {
+        public InvalidMapDataException(string message):base(message)
+        {}
+    }
     public class MapParser
     {
         public int[][] ReadTextToMap(string text)
@@ -21,48 +26,35 @@ namespace Pathfinding
                 else if (Char.IsDigit(c))
                 {
                     curRow.Add(int.Parse(c.ToString()));
-                }
+                } else if (c == '\r' || c == '\n')
+                {/*ignore extras - Environemnt.Newline should pick up the relevent one*/}
                 else
                 {
-                    //throw new Exception($"Map input must be digit or newline. Was {c}");
+                    throw new InvalidMapDataException($"Map input must be digit or newline. Was {c}");
                 }
             }
-            listMap.Add(curRow);
+            if (curRow.Count != 0)
+                listMap.Add(curRow);
 
-            //dodgy swapping - clean this later.
             int[][] map = new int[listMap[0].Count][];
-            for (int x = 0; x < listMap[0].Count; x++)
+
+            try
             {
-                map[x] = new int[listMap.Count];
-                for (int y = 0; y < listMap.Count; y++)
+                for (int x = 0; x < listMap[0].Count; x++)
                 {
-                    map[x][y] = listMap[y][x];
+                    map[x] = new int[listMap.Count];
+                    for (int y = 0; y < listMap.Count; y++)
+                    {
+                        map[x][y] = listMap[y][x];
+                    }
                 }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new InvalidMapDataException("Invalid map: Rows not of consistent lengths");
             }
 
             return map;
-        }
-
-        public int[][] ReadTextToMap(string text, int width, int height)
-        {
-            Console.WriteLine(text);
-            int[][] map = new int[width][];
-
-            for (int x = 0; x < width; x++)
-            {
-                map[x] = new int[height];
-                for (int y = 0; y < height; y++)
-                {
-                    // if (x*width+y < text.Length)
-                    // {
-                    Console.WriteLine(text[x*height+y]);
-                    //text[x*width+y].ToString()
-                    map[x][y] = int.Parse(text[x*height+y].ToString());
-                   // }
-                }
-            }
-
-            return map;            
         }
     }
 }

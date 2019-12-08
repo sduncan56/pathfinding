@@ -26,8 +26,6 @@ namespace Pathfinding.Tests
 00011110000
 20000000000";
 
-            Pathfinder pathfinder = new Pathfinder();
-
             MapParser mapParser = new MapParser();
             int[][] map = mapParser.ReadTextToMap(mapText);
 
@@ -35,6 +33,43 @@ namespace Pathfinding.Tests
             Assert.Equal(height, map[0].Length);
             Assert.Equal(2, map[0][6]);
             Assert.Equal(3, map[3][4]);
+        }
+
+        [Fact]
+        public void ReadTextToMap_TrailingNewLine()
+        {
+            string mapText =
+@"0003
+0000
+0111
+";
+
+            MapParser mapParser = new MapParser();
+            int[][] map = mapParser.ReadTextToMap(mapText);
+
+            Assert.Equal(4, map.Length);
+            Assert.Equal(3, map[0].Length);
+           
+        }
+
+        [Fact]
+        public void ReadTextToMap_InvalidInput()
+        {
+            string mapText = "kjfgjdkgfd";
+                        MapParser mapParser = new MapParser();
+            Assert.Throws<InvalidMapDataException>(() => mapParser.ReadTextToMap(mapText));
+        }
+
+        [Fact]
+        public void ReadTextToMap_JaggedMap()
+        {
+            string mapText = 
+@"0000
+0000
+000";
+            MapParser mapParser = new MapParser();
+
+            Assert.Throws<InvalidMapDataException>(()=> mapParser.ReadTextToMap(mapText));
         }
 
     }
